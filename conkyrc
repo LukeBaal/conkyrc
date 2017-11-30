@@ -94,7 +94,7 @@ color5 77B753
 color6 FFA300
 ###End Color###
 
-lua_load ~/SnowyConky/conky_clock.lua
+lua_load /SnowyConky/conky_clock.lua
 lua_draw_hook_pre clock_rings
 
 
@@ -109,7 +109,7 @@ ${offset 65}${font Adele:size=22}${time %B} ${voffset -10}${font Adele:size=30}$
 # Print Todo #
 ${voffset -60}${font Adele:size=14}${color orange}TODO ${hr 2}$color
 #${font Adele:size=14}${exec todo-cli list p}
-${font Adele:size=14}${exec cat ~/.todo.txt}
+${font Adele:size=14}${exec cat ~/todo.txt}
 #${voffset 15}${font Adele:size=14}${exec cat ~/`date +%a".txt"`}
 
 # Print Schedule #
