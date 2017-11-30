@@ -1,0 +1,135 @@
+#=====================================================================================
+#                               aurora
+# Date    : 26/06/2016
+# Author  : Erik Dubois at http://www.erikdubois.be
+# Version : v3.0.4
+# License : Distributed under the terms of GNU GPL version 2 or later
+# Documentation English: http://erikdubois.be/linux/install-conky-theme-aurora
+# Documentation Dutch: http://erikdubois.be/linux/conky
+#======================================================================================
+
+#======================================================================================
+#
+# Source
+# Snowy Conky
+# Assembled by Bhart Chauhan
+# https://plus.google.com/u/0/109578077190103601128/posts
+#
+#======================================================================================
+
+
+###Settings###
+background yes
+default_bar_size 200 10
+default_graph_size 200 100
+diskio_avg_samples 10
+double_buffer yes
+extra_newline no
+if_up_strictness address
+net_avg_samples 10
+no_buffers yes
+text_buffer_size 2048
+short_units yes
+update_interval 1
+###End Settings###
+
+###Position###
+alignment tr
+gap_x 20
+gap_y 48
+minimum_size 350 800
+maximum_width 600
+###End Position###
+
+
+###Borders###
+border_inner_margin 0
+border_outer_margin 10
+border_width 0
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades no
+###End Borders###
+
+###Window###
+own_window yes
+own_window_argb_visual yes
+own_window_argb_value 150
+own_window_class systemConky
+own_window_colour 333
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+#all options for own_window_type are normal, desktop, dock, panel or override
+#best for Linux Mint 17.1 Cinnamon
+own_window_type desktop
+#best for Ubuntu 14.10 Utopic
+#own_window_type normal
+own_window_transparent no
+own_window_title system_conky
+###End Window###
+
+###Font###
+max_text_width 0
+override_utf8_locale yes
+uppercase no
+use_spacer none
+use_xft yes
+xftfont ubuntu:size=14
+xftalpha 0.9
+###End Font###
+
+###Defining Colors###
+default_color d9d9d9
+default_outline_color 000000
+default_shade_color 000000
+#Shades of Gray#
+color1 DDDDDD
+color2 AAAAAA
+color3 888888
+#Orange#
+color4 EF5A29
+#Green#
+color5 77B753
+#Light Orange#
+color6 FFA300
+###End Color###
+
+lua_load ~/SnowyConky/conky_clock.lua
+lua_draw_hook_pre clock_rings
+
+
+TEXT
+# --- Time and date --- #
+#########################
+\
+${offset 95}${voffset 15}${font Adele:size=45}${time %I:%M} ${font Adele:size=16:bold}${time %p}
+${voffset 5}${font Adele:size=20}${time %A,}
+${offset 65}${font Adele:size=22}${time %B} ${voffset -10}${font Adele:size=30}${time %d}
+
+# Print Todo #
+${voffset -60}${font Adele:size=14}${color orange}TODO ${hr 2}$color
+#${font Adele:size=14}${exec todo-cli list p}
+${font Adele:size=14}${exec cat ~/.todo.txt}
+#${voffset 15}${font Adele:size=14}${exec cat ~/`date +%a".txt"`}
+
+# Print Schedule #
+#${color orange}SCHEDULE ${hr 2}$color
+#${font Adele:size=14}${exec 
+#w=`date +%U`
+#arg=`expr $w % 2 = 1`
+#if (($arg));then
+#	cat ~/schedule/`date +%a`w2.txt
+#else
+#	cat ~/schedule/`date +%a`w1.txt
+#fi
+#		}
+
+# Print Calendar #
+${color orange}CALENDAR ${hr 2}
+${font DejaVu Sans Mono:size=14}${color d9d9d9}${exec ncal -b -h}
+
+#${font DejaVu Sans Mono:size=16}${execpi 300 ncal -b -h| sed -e 's/'`date | awk '{print $3}'`'/\$\{color e84448}'`date | awk '{print $3}'`'\$\{color white}/'}
+
+${font Adele:size=14}${voffset -45}${color orange}WEATHER ${hr 2}
+${font DejaVu Sans Mono:size=14}${color}${voffset 0}${execpi 300 curl wttr.in/Oshawa?0qT}
+
