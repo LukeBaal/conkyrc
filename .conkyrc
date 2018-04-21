@@ -95,9 +95,9 @@ ${font Adele:size=14}${execpi 300 todo-cli listpretty}
 #########################
 
 # Print Schedule ########
-${color orange}SCHEDULE ${hr 2}$color
+#${color orange}SCHEDULE ${hr 2}$color
 #${font Adele:size=14}${execpi 300 cat ~/schedule/`date +%a`w1.txt}
-${font Adele:size=14}${execpi 300 schedule-cli listDay `date +%A`}
+#${font Adele:size=14}${execpi 300 schedule-cli listDay `date +%A`}
 #########################
 
 # Print Calendar ########
